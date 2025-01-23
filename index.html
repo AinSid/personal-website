@@ -440,6 +440,45 @@
             visibility: visible;
             opacity: 1;
         }
+
+        .project-popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .popup-content {
+            background: #1a1a1a;
+            padding: 2rem;
+            border-radius: 8px;
+            max-width: 500px;
+            position: relative;
+            margin: 20px;
+        }
+
+        .close-popup {
+            position: absolute;
+            right: 1rem;
+            top: 0.5rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #888;
+        }
+
+        .close-popup:hover {
+            color: #fff;
+        }
+
+        .company-card {
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -499,12 +538,18 @@
                 <div class="section" id="projects">
                     <h2>Personal Projects</h2>
                     <div class="experience-grid">
-                        <div class="company-card">
+                        <div class="company-card" onclick="showProjectDetails(this)">
                             <div class="logo-container">
                                 <img src="workout-logo.png" alt="Workout Tracker" class="company-logo">
                             </div>
                             <div class="company-name">Minimal Workout Tracker</div>
-                            <div class="company-description">Got tired of using the notes app to track my workouts, built this and never looked back. 20 of my friends use it now!</div>
+                            <div class="company-description">Never use the notes app again!</div>
+                            <div class="project-popup">
+                                <div class="popup-content">
+                                    <span class="close-popup">&times;</span>
+                                    <p>I got tired of using the notes app to track my workouts, so I built this and never looked back. 20 of my friends use it now! The design keeps things simple and I actually look forward to filling it in after working out.</p>
+                                </div>
+                            </div>
                         </div>
                         <div class="company-card">
                             <div class="logo-container">
