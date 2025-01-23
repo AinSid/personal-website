@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ain's Website</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0a0a0a;  /* Back to dark background */
+            color: #ffffff;
+            font-family: 'Space Grotesk', sans-serif;
+            cursor: default;
+            margin: 0;
+            padding: 0;  /* Remove padding */
+        }
+
+        .noise {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0.05;
+            z-index: 1;
+            background-image: url('data:image/png;base64,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');
+        }
+
+        .container {
+            max-width: 1000px;  /* Reduced from 1200px */
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        header {
+            padding: 4rem 0 6rem;  /* Increased bottom padding from 2rem to 6rem */
+        }
+
+        .sections-container {
+            max-width: 800px;  /* Reduced from 1000px */
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 4rem;
+        }
+
+        .section:first-child {
+            margin-top: 2rem;
+        }
+
+        .section:last-child {
+            margin-bottom: 2rem;
+        }
+
+        .section {
+            margin-bottom: 0;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 500;
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 500;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s forwards;
+        }
+
+        .hero-description {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            color: #888;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s 0.2s forwards;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            animation: fadeIn 0.8s 0.4s forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .work-section {
+            padding: 8rem 0;
+        }
+
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .work-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .work-item img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.3s;
+        }
+
+        .work-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .floating-emoji {
+            position: absolute;
+            font-size: 1.5rem;
+            cursor: move;
+            user-select: none;
+            transition: transform 0.2s;
+        }
+
+        .floating-emoji:hover {
+            transform: scale(1.2);
+        }
+
+        .skill-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .skill-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1rem;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s;
+        }
+
+        .skill-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .emoji-icon {
+            font-size: 1.5rem;
+        }
+
+        .section p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #bbb;
+            margin-bottom: 1.5rem;
+            max-width: none;
+        }
+
+        .section ul {
+            list-style: none;
+        }
+
+        .section ul li {
+            margin-bottom: 0.8rem;
+            color: #888;
+            font-size: 1.1rem;
+        }
+
+        .section a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .section a:hover {
+            color: #3B82F6;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .social-links a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+            opacity: 0.7;
+        }
+
+        .social-links a:hover {
+            color: #3B82F6;
+            opacity: 1;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-item {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 1.5rem;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        .project-item:hover {
+            background: rgba(255, 255, 255, 0.05);
+            transform: translateY(-2px);
+        }
+
+        .project-item h3 {
+            color: #fff;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-item p {
+            font-size: 0.95rem;
+            color: #888;
+            margin-bottom: 1rem;
+        }
+
+        .project-item a {
+            color: #3B82F6;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: opacity 0.3s;
+        }
+
+        .project-item a:hover {
+            opacity: 0.8;
+        }
+
+        .about-content {
+            max-width: 800px;  /* Increased from 700px to match sections-container width */
+            padding-top: 0.5rem;
+        }
+
+        .experience-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-top: 2rem;
+            max-width: 800px;
+            justify-items: center;
+        }
+
+        .company-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 1.5rem 2rem 2.5rem;  /* Reduced top padding, increased bottom padding */
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            transition: transform 0.3s;
+            width: 250px;
+            height: 280px;
+        }
+
+        .company-card:hover {
+            transform: translateY(-2px);
+        }
+
+        .logo-container {
+            height: 120px;  /* Reduced from 140px */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 0.5rem;  /* Reduced from 0.75rem */
+        }
+
+        .company-logo {
+            width: 120px;
+            height: 120px;
+            object-fit: contain;
+            margin-bottom: 0.5rem;  /* Reduced from 0.75rem */
+            padding: 5px;  /* Reduced from 10px */
+        }
+
+        .company-name {
+            font-weight: 500;
+            color: #fff;
+            margin-bottom: 0.25rem;
+            font-size: 1.1rem;
+        }
+
+        .company-name a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .company-name a:hover {
+            color: #3B82F6;
+        }
+
+        .logo-container a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-container a:hover {
+            opacity: 0.8;
+        }
+
+        .role {
+            color: #888;
+            font-size: 0.85rem;
+            padding: 0.4rem 0.8rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            border: none;
+            display: inline-block;
+            margin-top: 0.75rem;  /* Slightly increased from 0.5rem */
+            white-space: nowrap;
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-links a, 
+        .contact-links span,
+        .phone-container span {
+            color: #888;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            opacity: 0.7;
+            cursor: pointer;
+        }
+
+        .contact-links a:hover {
+            opacity: 1;
+            color: #3B82F6;
+        }
+
+        .phone-container:hover span {
+            opacity: 1;
+            color: #3B82F6;
+        }
+
+        h2 {
+            position: relative;
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .company-description {
+            color: #888;
+            font-size: 1rem;
+            margin: 0.25rem 0 0.5rem;
+            padding: 0;
+            border-top: none;
+        }
+
+        .about-content p {
+            color: #ddd;
+            max-width: none;  /* Ensures text can use full width */
+        }
+
+        .phone-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .phone-tooltip {
+            visibility: hidden;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            text-align: center;
+            padding: 8px 12px;
+            border-radius: 6px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            transform: translateX(-50%);
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .phone-container:hover .phone-tooltip {
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="noise"></div>
+    <div class="container">
+        <header>
+            <div class="sections-container">
+                <div class="section" id="about">
+                    <h2>About Me</h2>
+                    <div class="about-content">
+                        <p>Hey, I'm Ain!</p>
+                        <p>I am constantly reading, learning, building (not always in that order!). I am amazed by technological breakthroughs around the world and excited to be at the center of it all in California.</p>
+                        <p>I previously studied Math and CS at UCLA.</p>
+                        <p>Currently, I work on Data Center Analytics at Landgate, specifically compute infrastructure, grid connectivity, and power redundancy. I work directly with leading tech and consulting firms to inform their data center due diligence processes.</p>
+                        <p>On weekends, I enjoy building cool projects, exploring new restaurants, and playing soccer.</p>
+                    </div>
+                </div>
+
+                <div class="section" id="experience">
+                    <h2>Work Experience</h2>
+                    <div class="experience-grid">
+                        <div class="company-card">
+                            <div class="logo-container">
+                                <a href="https://www.landgate.com/energy-markets/data-centers" target="_blank">
+                                    <img src="images/landgate-logo.png" alt="LandGate" class="company-logo">
+                                </a>
+                            </div>
+                            <div class="company-name">
+                                <a href="https://www.landgate.com/energy-markets/data-centers" target="_blank">LandGate</a>
+                            </div>
+                            <div class="company-description">Data Center Analytics</div>
+                            <div class="role">Technical Project Manager</div>
+                        </div>
+                        <div class="company-card">
+                            <div class="logo-container">
+                                <a href="https://neumoney.app" target="_blank">
+                                    <img src="images/neumoney-logo.png" alt="Neu Money" class="company-logo">
+                                </a>
+                            </div>
+                            <div class="company-name">
+                                <a href="https://neumoney.app" target="_blank">Neu Money</a>
+                            </div>
+                            <div class="company-description">Fintech (Series B)</div>
+                            <div class="role">Product Manager (3rd hire)</div>
+                        </div>
+                        <div class="company-card">
+                            <div class="logo-container">
+                                <img src="images/minds-logo.png" alt="Minds" class="company-logo">
+                            </div>
+                            <div class="company-name">Minds</div>
+                            <div class="company-description">SaaS Edtech</div>
+                            <div class="role">Strategy Intern</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section" id="projects">
+                    <h2>Personal Projects</h2>
+                    <p>Coming soon...</p>
+                </div>
+
+                <div class="section" id="contact">
+                    <h2>Contact</h2>
+                    <div class="contact-links">
+                        <a href="https://x.com/ain__siddiqui?s=21&t=R_ZhBECSPLL5Y3fHMTtcFQ" target="_blank">Twitter/X</a>
+                        <a href="mailto:ain.sidd2@gmail.com">Email</a>
+                        <span>LinkedIn</span>
+                        <div class="phone-container">
+                            <span>Phone</span>
+                            <div class="phone-tooltip">(424) 440-9353</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
