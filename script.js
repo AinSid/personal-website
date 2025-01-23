@@ -177,3 +177,22 @@ document.querySelectorAll('.skill-item').forEach(item => {
         }, 300);
     });
 });
+
+function showProjectDetails(card) {
+    const popup = card.querySelector('.project-popup');
+    popup.style.display = 'flex';
+
+    // Close when clicking the X button
+    const closeBtn = popup.querySelector('.close-popup');
+    closeBtn.onclick = function(e) {
+        e.stopPropagation();  // Prevent the click from bubbling to the card
+        popup.style.display = 'none';
+    }
+
+    // Close when clicking outside the popup content
+    popup.onclick = function(e) {
+        if (e.target === popup) {
+            popup.style.display = 'none';
+        }
+    }
+}
