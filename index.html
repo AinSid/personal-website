@@ -441,43 +441,94 @@
             opacity: 1;
         }
 
-        .project-popup {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
+        .projects-intro {
+            color: #bbb;
+            margin-bottom: 2rem;
+            line-height: 1.6;
         }
 
-        .popup-content {
-            background: #1a1a1a;
-            padding: 2rem;
-            border-radius: 8px;
-            max-width: 500px;
-            position: relative;
-            margin: 20px;
+        .projects-list {
+            margin-left: 1rem;
         }
 
-        .close-popup {
-            position: absolute;
-            right: 1rem;
-            top: 0.5rem;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: #888;
+        .project-item {
+            margin-bottom: 1.5rem;
         }
 
-        .close-popup:hover {
+        .project-item p {
+            margin-bottom: 0.5rem;
             color: #fff;
         }
 
-        .company-card {
-            cursor: pointer;
+        .project-description {
+            margin-left: 1.5rem;
+            color: #bbb !important;
+            font-size: 0.95rem;
+        }
+
+        .project-item a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .project-item a:hover {
+            color: #3B82F6;
+        }
+
+        .project-title {
+            color: #3B82F6 !important;
+        }
+
+        .project-title:hover {
+            opacity: 0.8;
+        }
+
+        @media screen and (max-width: 768px) {
+            .container {
+                padding: 0 1rem;
+            }
+
+            header {
+                padding: 2rem 0 3rem;
+            }
+
+            .sections-container {
+                gap: 2rem;
+            }
+
+            .experience-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .company-card {
+                width: 100%;
+                max-width: 300px;
+                margin: 0 auto;
+            }
+
+            .about-content p {
+                font-size: 0.95rem;
+            }
+
+            .contact-links {
+                gap: 1rem;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+
+            .projects-intro {
+                font-size: 0.95rem;
+            }
+
+            .project-description {
+                font-size: 0.9rem;
+            }
         }
     </style>
 </head>
@@ -526,7 +577,7 @@
                         </div>
                         <div class="company-card">
                             <div class="logo-container">
-                                <img src="logo3.png" alt="Minds" class="company-logo">
+                                <img src="minds-logo.png" alt="Minds" class="company-logo">
                             </div>
                             <div class="company-name">Minds</div>
                             <div class="company-description">SaaS Edtech</div>
@@ -537,29 +588,17 @@
 
                 <div class="section" id="projects">
                     <h2>Personal Projects</h2>
-                    <div class="experience-grid">
-                        <div class="company-card" onclick="showProjectDetails(this)">
-                            <div class="logo-container">
-                                <img src="workout-logo.png" alt="Workout Tracker" class="company-logo">
-                            </div>
-                            <div class="company-name">Minimal Workout Tracker</div>
-                            <div class="company-description">Never use the notes app again!</div>
-                            <div class="project-popup">
-                                <div class="popup-content">
-                                    <span class="close-popup">&times;</span>
-                                    <p>I got tired of using the notes app to track my workouts, so I built this and never looked back. 20 of my friends use it now! The design keeps things simple and I actually look forward to filling it in after working out.</p>
-                                </div>
-                            </div>
+                    <p class="projects-intro">There are some personal projects I have built and had fun with. Some were born out of curiosity, others I worked on because I faced a problem and didn't love the solutions available. I hope you find them interesting!</p>
+                    <div class="projects-list">
+                        <div class="project-item">
+                            <p>- <a href="https://ainsid.github.io/workout-tracker/" target="_blank" class="project-title">Minimal Workout Tracker</a></p>
+                            <p class="project-description">I got tired of using the notes app to track my workouts, so I built this and never looked back. 20 of my friends use it now! The design keeps things simple and I actually look forward to filling it in after working out.</p>
                         </div>
-                        <div class="company-card">
-                            <div class="logo-container">
-                                <div style="color: #888; margin-top: 45px;">Coming soon!</div>
-                            </div>
+                        <div class="project-item">
+                            <p>- Coming soon!</p>
                         </div>
-                        <div class="company-card">
-                            <div class="logo-container">
-                                <div style="color: #888; margin-top: 45px;">Coming soon!</div>
-                            </div>
+                        <div class="project-item">
+                            <p>- Coming soon!</p>
                         </div>
                     </div>
                 </div>
