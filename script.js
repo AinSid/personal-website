@@ -177,3 +177,13 @@ document.querySelectorAll('.skill-item').forEach(item => {
         }, 300);
     });
 });
+
+function copyEmail(button) {
+    navigator.clipboard.writeText('ain.sidd2@gmail.com').then(() => {
+        const feedback = button.querySelector('.copy-feedback');
+        feedback.style.opacity = '1';
+        setTimeout(() => {
+            feedback.style.opacity = '0';
+        }, 2000);
+    });
+}
