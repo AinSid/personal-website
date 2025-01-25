@@ -433,10 +433,132 @@
         }
 
         @media screen and (max-width: 768px) {
-            .contact-links {
+            .container {
+                padding: 2rem 1.5rem;
+            }
+
+            .sections-container {
+                max-width: 100%;
+            }
+
+            .about-content {
+                max-width: 100%;
+            }
+
+            .about-content p {
+                font-size: 1rem;
+            }
+
+            .experience-grid {
+                grid-template-columns: 1fr;
                 gap: 1.5rem;
+                margin-top: 1.5rem;
+            }
+
+            .company-card {
+                width: 100%;
+                max-width: none;
+                height: auto;
+                padding: 1rem;
+                flex-direction: row;
+                text-align: left;
+                align-items: center;
+                justify-content: flex-start;
+                gap: 1rem;
+            }
+
+            .logo-container {
+                height: 60px;
+                width: 60px;
+                min-width: 60px;
+                margin: 0;
+            }
+
+            .company-logo {
+                width: 60px;
+                height: 60px;
+                margin: 0;
+            }
+
+            .company-info {
+                display: flex;
                 flex-direction: column;
                 align-items: flex-start;
+                flex: 1;
+            }
+
+            .company-name {
+                font-size: 1rem;
+                margin: 0;
+            }
+
+            .company-description {
+                font-size: 0.85rem;
+                margin: 0.25rem 0;
+            }
+
+            .role {
+                font-size: 0.8rem;
+                margin: 0.25rem 0 0 0;
+                padding: 0.3rem 0.6rem;
+            }
+
+            .projects-intro {
+                font-size: 1rem;
+            }
+
+            .project-item {
+                padding: 1.25rem;
+            }
+
+            .project-title {
+                font-size: 1rem !important;
+            }
+
+            .project-description {
+                font-size: 0.9rem;
+                margin-left: 1rem;
+            }
+
+            .contact-intro {
+                font-size: 1rem;
+            }
+
+            .contact-links {
+                gap: 1.25rem;
+            }
+
+            .contact-links a {
+                font-size: 1rem;
+            }
+
+            .tooltip {
+                font-size: 0.85rem;
+                padding: 6px 10px;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+                margin-bottom: 1.5rem;
+            }
+        }
+
+        /* Add styles for even smaller screens */
+        @media screen and (max-width: 480px) {
+            .container {
+                padding: 1.5rem 1rem;
+            }
+
+            .company-card {
+                max-width: 250px;
+            }
+
+            .projects-list {
+                margin-left: 0.5rem;
+            }
+
+            .project-description {
+                margin-left: 0.75rem;
             }
         }
 
@@ -522,11 +644,13 @@
                                     <img src="logo1.png" alt="LandGate" class="company-logo">
                                 </a>
                             </div>
-                            <div class="company-name">
-                                <a href="https://www.landgate.com/energy-markets/data-centers" target="_blank">LandGate</a>
+                            <div class="company-info">
+                                <div class="company-name">
+                                    <a href="https://www.landgate.com/energy-markets/data-centers" target="_blank">LandGate</a>
+                                </div>
+                                <div class="company-description">Data Center Infrastructure</div>
+                                <div class="role">Technical Project Manager</div>
                             </div>
-                            <div class="company-description">Data Center Infrastructure</div>
-                            <div class="role">Technical Project Manager</div>
                         </div>
                         <div class="company-card">
                             <div class="logo-container">
