@@ -434,7 +434,11 @@
 
         @media screen and (max-width: 768px) {
             .container {
-                padding: 1rem 1.5rem;  /* Reduced top padding */
+                padding: 0 1.5rem 1.5rem;
+            }
+
+            header {
+                margin-top: -3rem;  /* Increased negative margin even more */
             }
 
             .sections-container {
@@ -448,26 +452,42 @@
 
             .about-content p {
                 font-size: 0.9rem;
+                color: #e5e5e5;
             }
 
             .experience-grid {
                 grid-template-columns: 1fr;
                 gap: 1.5rem;
                 margin-top: 1.5rem;
-                width: 100%;  /* Full width */
-                padding: 0;  /* Remove padding */
+                width: 100%;
+                justify-items: start;  /* Align items to start instead of center */
+                margin-left: -1.5rem;  /* Pull content to align with section title */
             }
 
             .company-card {
-                width: 100%;
-                max-width: none;
+                width: calc(100% + 3rem);  /* Extend full width */
+                background: none;
                 height: auto;
-                padding: 1.2rem 1.5rem;  /* More horizontal padding */
+                padding: 1rem 1.5rem;  /* Add padding to align content */
                 flex-direction: row;
                 text-align: left;
                 align-items: center;
                 justify-content: flex-start;
                 gap: 1.2rem;
+                margin: 0;
+                border-radius: 0;
+            }
+
+            .logo-container {
+                height: 70px;
+                width: 70px;
+                min-width: 70px;
+                margin: 0;
+            }
+
+            .company-logo {
+                width: 70px;
+                height: 70px;
                 margin: 0;
             }
 
@@ -475,29 +495,52 @@
                 display: flex;
                 flex-direction: column;
                 align-items: flex-start;
-                flex: 1;
-                gap: 0.4rem;  /* Slightly more space between elements */
+                gap: 0.4rem;
+            }
+
+            .company-name {
+                font-size: 0.9rem;
+                margin: 0;
             }
 
             .company-description {
-                font-size: 0.85rem;
+                font-size: 0.8rem;
                 margin: 0;
-                white-space: nowrap;  /* Prevent text wrapping */
-                overflow: hidden;
-                text-overflow: ellipsis;  /* Show ... if text overflows */
-                width: 100%;
+                color: #bbb;
             }
 
-            /* Make all description text match About Me size */
+            .role {
+                font-size: 0.75rem;
+                margin: 0;
+                padding: 0.2rem 0.6rem;
+                background: rgba(255, 255, 255, 0.05);
+            }
+
             .projects-intro,
             .contact-intro {
-                font-size: 0.9rem;  /* Match About Me text size */
+                font-size: 0.9rem !important;  /* Slightly increased from 0.85rem */
                 line-height: 1.6;
-                color: #bbb;  /* Match About Me text color */
+                color: #e5e5e5 !important;
             }
 
-            .about-content p {
-                font-size: 0.9rem;
+            .project-item {
+                padding: 1rem;  /* Reduced from 1.5rem */
+                margin-bottom: 1rem;  /* Reduced from 1.5rem */
+            }
+
+            .project-title {
+                font-size: 0.5rem !important;  /* Made even smaller */
+                margin-bottom: 0.3rem;  /* Reduced spacing */
+            }
+
+            .project-description {
+                font-size: 0.8rem !important;
+                line-height: 1.5;  /* Slightly reduced */
+                margin-left: 0;
+            }
+
+            .contact-links a {
+                font-size: 0.85rem;
             }
 
             .section {
@@ -563,7 +606,7 @@
         }
 
         .project-description {
-            margin-left: 1.5rem;
+            margin-left: 0;
             color: #bbb !important;
             font-size: 0.95rem;
         }
@@ -620,19 +663,23 @@
                                     <img src="logo2.png" alt="Neu Money" class="company-logo">
                                 </a>
                             </div>
-                            <div class="company-name">
-                                <a href="https://neumoney.app" target="_blank">Neu Money</a>
+                            <div class="company-info">
+                                <div class="company-name">
+                                    <a href="https://neumoney.app" target="_blank">Neu Money</a>
+                                </div>
+                                <div class="company-description">Fintech (Series B)</div>
+                                <div class="role">Product Manager (3rd hire)</div>
                             </div>
-                            <div class="company-description">Fintech (Series B)</div>
-                            <div class="role">Product Manager (3rd hire)</div>
                         </div>
                         <div class="company-card">
                             <div class="logo-container">
                                 <img src="minds-logo.png" alt="Minds" class="company-logo">
                             </div>
-                            <div class="company-name">Minds</div>
-                            <div class="company-description">SaaS Edtech</div>
-                            <div class="role">Strategy Intern</div>
+                            <div class="company-info">
+                                <div class="company-name">Minds</div>
+                                <div class="company-description">SaaS Edtech</div>
+                                <div class="role">Strategy Intern</div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -642,14 +689,14 @@
                     <p class="projects-intro">Here are some personal projects I have built and had fun with. Some were born out of curiosity, others I worked on because I faced a problem and didn't love the solutions available. I hope you find them interesting!</p>
                     <div class="projects-list">
                         <div class="project-item">
-                            <p>- <a href="https://ainsid.github.io/workout-tracker/" target="_blank" class="project-title">Minimal Workout Tracker</a></p>
+                            <p><span class="project-title">Minimal Workout Tracker</span></p>
                             <p class="project-description">I got tired of using the notes app to track my workouts, so I built this and never looked back. 20 of my friends use it now! The design keeps things simple and I actually look forward to filling it in after working out.</p>
                         </div>
                         <div class="project-item">
-                            <p>- Coming soon!</p>
+                            <p>Coming soon!</p>
                         </div>
                         <div class="project-item">
-                            <p>- Coming soon!</p>
+                            <p>Coming soon!</p>
                         </div>
                     </div>
                 </div>
