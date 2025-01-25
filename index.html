@@ -453,18 +453,38 @@
                 grid-template-columns: 1fr;
                 gap: 1.5rem;
                 margin-top: 1.5rem;
+                max-width: none;  /* Allow full width */
+                justify-items: stretch;  /* Stretch cards to full width */
             }
 
             .company-card {
                 width: 100%;
-                max-width: none;
+                max-width: none;  /* Remove max-width restriction */
                 height: auto;
-                padding: 1rem;
+                padding: 1.2rem;
                 flex-direction: row;
                 text-align: left;
                 align-items: center;
                 justify-content: flex-start;
-                gap: 1rem;
+                gap: 1.2rem;
+                margin: 0;  /* Remove any margin */
+            }
+
+            /* Make description text sizes consistent */
+            .projects-intro,
+            .contact-intro,
+            .about-content p {
+                font-size: 0.95rem;  /* Match About Me section text size */
+                line-height: 1.6;
+            }
+
+            /* Adjust company info spacing */
+            .company-info {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                flex: 1;
+                gap: 0.3rem;  /* Add small gap between elements */
             }
 
             .logo-container {
@@ -478,13 +498,6 @@
                 width: 60px;
                 height: 60px;
                 margin: 0;
-            }
-
-            .company-info {
-                display: flex;
-                flex-direction: column;
-                align-items: flex-start;
-                flex: 1;
             }
 
             .company-name {
