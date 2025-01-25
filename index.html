@@ -291,12 +291,12 @@
             flex-direction: column;
             align-items: center;
             text-align: center;
-            padding: 1.5rem 2rem 2.5rem;  /* Reduced top padding, increased bottom padding */
+            padding: 1.5rem 1.5rem 2.5rem;
             background: rgba(255, 255, 255, 0.03);
             border-radius: 8px;
             transition: transform 0.3s;
             width: 250px;
-            height: 280px;
+            height: 260px;  /* Increased height */
         }
 
         .company-card:hover {
@@ -304,19 +304,19 @@
         }
 
         .logo-container {
-            height: 120px;  /* Reduced from 140px */
+            height: 100px;  /* Reduced from 110px */
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 0.5rem;  /* Reduced from 0.75rem */
+            margin-bottom: 0.5rem;
         }
 
         .company-logo {
-            width: 120px;
-            height: 120px;
+            width: 100px;  /* Reduced from 110px */
+            height: 100px;  /* Reduced from 110px */
             object-fit: contain;
-            margin-bottom: 0.5rem;  /* Reduced from 0.75rem */
-            padding: 5px;  /* Reduced from 10px */
+            margin-bottom: 0.5rem;
+            padding: 5px;
         }
 
         .company-name {
@@ -346,6 +346,14 @@
             opacity: 0.8;
         }
 
+        .company-description {
+            color: #bbb;
+            font-size: 0.9rem;  /* Made slightly smaller */
+            margin: 0.25rem 0 0.5rem;
+            padding: 0;
+            border-top: none;
+        }
+
         .role {
             color: #888;
             font-size: 0.85rem;
@@ -354,35 +362,82 @@
             border-radius: 20px;
             border: none;
             display: inline-block;
-            margin-top: 0.75rem;  /* Slightly increased from 0.5rem */
+            margin: 0.75rem 0 1.5rem;  /* Increased bottom margin */
             white-space: nowrap;
         }
 
-        .contact-links {
-            display: flex;
-            gap: 2rem;
-            flex-wrap: wrap;
+        .contact-intro {
+            color: #e5e5e5 !important;  /* Made whiter to match projects section */
+            margin-bottom: 3rem;
+            line-height: 1.6;
         }
 
-        .contact-links a, 
-        .contact-links span,
-        .phone-container span {
-            color: #888;
+        /* Update contact link styles */
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .contact-links p {
+            position: relative;
+            margin: 0;
+        }
+
+        .contact-links a {
+            color: #3B82F6;
             text-decoration: none;
-            font-size: 1.1rem;
             transition: all 0.3s;
-            opacity: 0.7;
-            cursor: pointer;
+            opacity: 0.85;  /* Made brighter from 0.7 */
+            font-size: 1.1rem;
         }
 
         .contact-links a:hover {
             opacity: 1;
-            color: #3B82F6;
         }
 
-        .phone-container:hover span {
+        .tooltip {
+            visibility: hidden;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            text-align: center;
+            padding: 8px 12px;
+            border-radius: 6px;
+            position: absolute;
+            z-index: 1;
+            top: 50%;
+            left: 80px;  /* Increased from 60px to move further right */
+            transform: translateY(-50%);
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-size: 0.9rem;
+        }
+
+        /* Update arrow position */
+        .tooltip::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            right: 100%;
+            margin-top: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: transparent rgba(255, 255, 255, 0.1) transparent transparent;
+        }
+
+        .contact-links p:hover .tooltip {
+            visibility: visible;
             opacity: 1;
-            color: #3B82F6;
+        }
+
+        @media screen and (max-width: 768px) {
+            .contact-links {
+                gap: 1.5rem;
+                flex-direction: column;
+                align-items: flex-start;
+            }
         }
 
         h2 {
@@ -401,58 +456,21 @@
             background: rgba(255, 255, 255, 0.3);
         }
 
-        .company-description {
-            color: #888;
-            font-size: 1rem;
-            margin: 0.25rem 0 0.5rem;
-            padding: 0;
-            border-top: none;
-        }
-
-        .about-content p {
-            color: #ddd;
-            max-width: none;  /* Ensures text can use full width */
-        }
-
-        .phone-container {
-            position: relative;
-            display: inline-block;
-        }
-
-        .phone-tooltip {
-            visibility: hidden;
-            background-color: rgba(255, 255, 255, 0.1);
-            color: #fff;
-            text-align: center;
-            padding: 8px 12px;
-            border-radius: 6px;
-            position: absolute;
-            z-index: 1;
-            bottom: 125%;
-            left: 50%;
-            transform: translateX(-50%);
-            white-space: nowrap;
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        .phone-container:hover .phone-tooltip {
-            visibility: visible;
-            opacity: 1;
-        }
-
-        .projects-intro {
-            color: #bbb;
-            margin-bottom: 2rem;
-            line-height: 1.6;
-        }
-
         .projects-list {
             margin-left: 1rem;
         }
 
         .project-item {
             margin-bottom: 1.5rem;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 1.5rem;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        .project-item:hover {
+            background: rgba(255, 255, 255, 0.05);
+            transform: translateY(-2px);
         }
 
         .project-item p {
@@ -466,81 +484,16 @@
             font-size: 0.95rem;
         }
 
-        .project-item a {
-            color: #fff;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .project-item a:hover {
-            color: #3B82F6;
-        }
-
         .project-title {
             color: #3B82F6 !important;
-            font-size: 1.25rem;
+            font-size: 1.1rem !important;  /* Made slightly smaller */
+            font-weight: 500;
+            display: inline-block;
+            margin-bottom: 0.5rem;
         }
 
         .project-title:hover {
             opacity: 0.8;
-        }
-
-        @media screen and (max-width: 768px) {
-            .container {
-                padding: 0 1rem;
-            }
-
-            header {
-                padding: 2rem 0 3rem;
-            }
-
-            .sections-container {
-                gap: 2rem;
-            }
-
-            .experience-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .logo-container {
-                height: 80px;  /* Reduced from 120px */
-            }
-
-            .company-logo {
-                width: 80px;   /* Reduced from 120px */
-                height: 80px;  /* Reduced from 120px */
-            }
-
-            .company-card {
-                width: 100%;
-                max-width: 300px;
-                margin: 0 auto;
-                height: 240px;  /* Reduced from 280px to match smaller logo */
-                padding: 1rem 1.5rem 2rem;  /* Slightly reduced padding */
-            }
-
-            .about-content p {
-                font-size: 0.95rem;
-            }
-
-            .contact-links {
-                gap: 1rem;
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            h2 {
-                font-size: 1.5rem;  /* Made section titles smaller */
-            }
-
-            .projects-intro {
-                font-size: 0.9rem;  /* Made project description smaller */
-            }
-
-            .project-description {
-                font-size: 0.9rem;
-            }
         }
     </style>
 </head>
@@ -572,7 +525,7 @@
                             <div class="company-name">
                                 <a href="https://www.landgate.com/energy-markets/data-centers" target="_blank">LandGate</a>
                             </div>
-                            <div class="company-description">Data Center Analytics</div>
+                            <div class="company-description">Data Center Infrastructure</div>
                             <div class="role">Technical Project Manager</div>
                         </div>
                         <div class="company-card">
@@ -617,14 +570,18 @@
 
                 <div class="section" id="contact">
                     <h2>Contact</h2>
+                    <p class="contact-intro">Feel free to reach out to me through any of the following links.<br>Active on Twitter/X in the AI infra/ML space. Most responsive over email.</p>
                     <div class="contact-links">
-                        <a href="https://x.com/ain__siddiqui?s=21&t=R_ZhBECSPLL5Y3fHMTtcFQ" target="_blank">Twitter/X</a>
-                        <a href="mailto:ain.sidd2@gmail.com">Email</a>
-                        <span>LinkedIn</span>
-                        <div class="phone-container">
-                            <span>Phone</span>
-                            <div class="phone-tooltip">(424) 440-9353</div>
-                        </div>
+                        <p><a href="https://x.com/ain__siddiqui" target="_blank">Twitter/X</a></p>
+                        <p><a href="https://www.linkedin.com/in/ain1/" target="_blank">LinkedIn</a></p>
+                        <p>
+                            <a href="mailto:ain.sidd2@gmail.com">Email</a>
+                            <span class="tooltip">ain.sidd2@gmail.com</span>
+                        </p>
+                        <p>
+                            <a href="tel:4244409353">Phone</a>
+                            <span class="tooltip">(424) 440-9353</span>
+                        </p>
                     </div>
                 </div>
             </div>
