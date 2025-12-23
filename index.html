@@ -3,10 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="tab-icon.png">
-    <title>Ain's Website</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;500;600&display=swap" rel="stylesheet">
+    <title>Ain Siddiqui</title>
     <style>
         * {
             margin: 0;
@@ -15,648 +12,458 @@
         }
 
         body {
-            background-color: #0a0a0a;  /* Back to dark background */
-            color: #ffffff;
-            font-family: 'Inter', sans-serif;
-            cursor: default;
-            margin: 0;
-            padding: 0;  /* Remove padding */
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #e0e0e0;
+            background-color: #1a1a1a;
+            padding: 40px 20px;
+            max-width: 650px;
+            margin: 0 auto;
         }
 
-        .noise {
+        h1 {
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 30px;
+            color: #ffffff;
+        }
+
+        h2 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-top: 50px;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        p {
+            margin-bottom: 15px;
+            font-size: 16px;
+            color: #e0e0e0;
+        }
+
+        a {
+            color: #8ba9c9;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .intro {
+            margin-bottom: 40px;
+        }
+
+        .section {
+            margin-bottom: 60px;
+        }
+
+        .item {
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 10px;
+        }
+
+        .item-title {
+            font-size: 16px;
+            color: #8ba9c9;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-block;
+            margin-bottom: 5px;
+            flex-shrink: 0;
+        }
+
+        .item-title:hover {
+            text-decoration: underline;
+        }
+
+        .item-category {
+            font-size: 14px;
+            color: #999;
+            flex-grow: 1;
+        }
+
+        .item-date {
+            font-size: 14px;
+            color: #999;
+            flex-shrink: 0;
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        .contact-links a {
+            font-size: 16px;
+            color: #9bb8d3;
+            font-weight: 600;
+        }
+
+        .article-placeholder {
+            font-size: 15px;
+            color: #666666;
+            font-style: italic;
+        }
+
+        .thought-item {
+            margin-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+
+        .thought-link {
+            color: #e0e0e0;
+            text-decoration: underline;
+            font-size: 16px;
+            font-weight: 400;
+        }
+
+        .thought-link:hover {
+            color: #ffffff;
+        }
+
+        .thought-date {
+            font-size: 14px;
+            color: #999;
+            margin-left: 20px;
+            flex-shrink: 0;
+        }
+
+        .project-desc {
+            font-size: 14px;
+            color: #999;
+            margin-left: 20px;
+            flex-shrink: 0;
+        }
+
+        /* Modal/Popup Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background-color: #242424;
+            box-shadow: -2px 0 10px rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            overflow-y: auto;
+            padding: 40px;
+            animation: slideIn 0.3s ease-out;
+        }
+
+        .modal.active {
+            display: block;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+            }
+            to {
+                transform: translateX(0);
+            }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 28px;
+            color: #e0e0e0;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 0;
+            line-height: 1;
+        }
+
+        .modal-close:hover {
+            color: #9bb8d3;
+        }
+
+        .modal-content h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
+
+        .modal-content p {
+            margin-bottom: 15px;
+            color: #e0e0e0;
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        .modal-content strong {
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        .modal-content a {
+            color: #9bb8d3;
+            font-weight: 600;
+        }
+
+        .overlay {
+            display: none;
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            pointer-events: none;
-            opacity: 0.05;
-            z-index: 1;
-            background-image: url('data:image/png;base64,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');
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
         }
 
-        .container {
-            max-width: 1000px;  /* Reduced from 1200px */
-            margin: 0 auto;
-            padding: 0 2rem;
+        .overlay.active {
+            display: block;
         }
 
-        header {
-            padding: 4rem 0 6rem;  /* Increased bottom padding from 2rem to 6rem */
-        }
-
-        .sections-container {
-            max-width: 800px;  /* Reduced from 1000px */
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 4rem;
-        }
-
-        .section:first-child {
-            margin-top: 2rem;
-        }
-
-        .section:last-child {
-            margin-bottom: 2rem;
-        }
-
-        .section {
-            margin-bottom: 0;
-        }
-
-        .section-title {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-
-        .section-title h2 {
-            font-size: 2.5rem;
-            font-weight: 500;
-            color: #ffffff;
-            margin-bottom: 1.5rem;
-        }
-
-        .hero-title {
-            font-size: clamp(2.5rem, 8vw, 5rem);
-            font-weight: 500;
-            line-height: 1.1;
-            margin-bottom: 2rem;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 0.8s forwards;
-        }
-
-        .hero-description {
-            font-size: clamp(1rem, 2vw, 1.25rem);
-            color: #888;
-            margin-bottom: 2rem;
-            max-width: 600px;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 0.8s 0.2s forwards;
-        }
-
-        .scroll-indicator {
-            position: absolute;
-            bottom: 2rem;
-            left: 50%;
-            transform: translateX(-50%);
-            opacity: 0;
-            animation: fadeIn 0.8s 0.4s forwards;
-        }
-
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-            }
-        }
-
-        .work-section {
-            padding: 8rem 0;
-        }
-
-        .work-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 4rem;
-        }
-
-        .work-item {
-            position: relative;
-            overflow: hidden;
-            border-radius: 8px;
-            cursor: pointer;
-        }
-
-        .work-item img {
-            width: 100%;
-            height: auto;
-            transition: transform 0.3s;
-        }
-
-        .work-item:hover img {
-            transform: scale(1.05);
-        }
-
-        .floating-emoji {
-            position: absolute;
-            font-size: 1.5rem;
-            cursor: move;
-            user-select: none;
-            transition: transform 0.2s;
-        }
-
-        .floating-emoji:hover {
-            transform: scale(1.2);
-        }
-
-        .skill-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 1rem;
-            margin: 2rem 0;
-        }
-
-        .skill-item {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 1rem;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: all 0.3s;
-        }
-
-        .skill-item:hover {
-            background: rgba(255, 255, 255, 0.1);
-            transform: translateY(-2px);
-        }
-
-        .emoji-icon {
-            font-size: 1.5rem;
-        }
-
-        .section p {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            color: #bbb;
-            margin-bottom: 1.5rem;
-            max-width: none;
-        }
-
-        .section ul {
-            list-style: none;
-        }
-
-        .section ul li {
-            margin-bottom: 0.8rem;
-            color: #888;
-            font-size: 1.1rem;
-        }
-
-        .section a {
-            color: #fff;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .section a:hover {
-            color: #3B82F6;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .social-links a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 1.1rem;
-            transition: color 0.3s;
-            opacity: 0.7;
-        }
-
-        .social-links a:hover {
-            color: #3B82F6;
-            opacity: 1;
-        }
-
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .project-item {
-            background: rgba(255, 255, 255, 0.03);
-            padding: 1.5rem;
-            border-radius: 8px;
-            transition: all 0.3s;
-        }
-
-        .project-item:hover {
-            background: rgba(255, 255, 255, 0.05);
-            transform: translateY(-2px);
-        }
-
-        .project-item h3 {
-            color: #fff;
-            margin-bottom: 0.5rem;
-        }
-
-        .project-item p {
-            font-size: 0.95rem;
-            color: #888;
-            margin-bottom: 1rem;
-        }
-
-        .project-item a {
-            color: #3B82F6;
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: opacity 0.3s;
-        }
-
-        .project-item a:hover {
-            opacity: 0.8;
-        }
-
-        .about-content {
-            max-width: 800px;  /* Increased from 700px to match sections-container width */
-            padding-top: 0.5rem;
-        }
-
-        .experience-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
-            margin-top: 2rem;
-            max-width: 800px;
-            justify-items: center;
-        }
-
-        .company-card {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            padding: 1.5rem 1.5rem 2.5rem;
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 8px;
-            transition: transform 0.3s;
-            width: 250px;
-            height: 260px;  /* Increased height */
-        }
-
-        .company-card:hover {
-            transform: translateY(-2px);
-        }
-
-        .logo-container {
-            height: 100px;  /* Reduced from 110px */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 0.5rem;
-        }
-
-        .company-logo {
-            width: 100px;  /* Reduced from 110px */
-            height: 100px;  /* Reduced from 110px */
-            object-fit: contain;
-            margin-bottom: 0.5rem;
-            padding: 5px;
-        }
-
-        .company-name {
-            font-weight: 500;
-            color: #fff;
-            margin-bottom: 0.25rem;
-            font-size: 1.1rem;
-        }
-
-        .company-name a {
-            color: #fff;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .company-name a:hover {
-            color: #3B82F6;
-        }
-
-        .logo-container a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .logo-container a:hover {
-            opacity: 0.8;
-        }
-
-        .company-description {
-            color: #bbb;
-            font-size: 0.9rem;  /* Made slightly smaller */
-            margin: 0.25rem 0 0.5rem;
-            padding: 0;
-            border-top: none;
-        }
-
-        .role {
-            color: #888;
-            font-size: 0.85rem;
-            padding: 0.4rem 0.8rem;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 20px;
-            border: none;
-            display: inline-block;
-            margin: 0.75rem 0 1.5rem;  /* Increased bottom margin */
-            white-space: nowrap;
-        }
-
-        .contact-intro {
-            color: #e5e5e5 !important;  /* Made whiter to match projects section */
-            margin-bottom: 3rem;
-            line-height: 1.6;
-        }
-
-        /* Update contact link styles */
-        .contact-links {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .contact-links p {
-            position: relative;
-            margin: 0;
-        }
-
-        .contact-links a {
-            color: #3B82F6;
-            text-decoration: none;
-            transition: all 0.3s;
-            opacity: 0.85;  /* Made brighter from 0.7 */
-            font-size: 1.1rem;
-        }
-
-        .contact-links a:hover {
-            opacity: 1;
-        }
-
-        .tooltip {
-            visibility: hidden;
-            background-color: rgba(255, 255, 255, 0.1);
-            color: #fff;
-            text-align: center;
-            padding: 8px 12px;
-            border-radius: 6px;
-            position: absolute;
-            z-index: 1;
-            top: 50%;
-            left: 80px;  /* Increased from 60px to move further right */
-            transform: translateY(-50%);
-            white-space: nowrap;
-            opacity: 0;
-            transition: opacity 0.3s;
-            font-size: 0.9rem;
-        }
-
-        /* Update arrow position */
-        .tooltip::before {
-            content: "";
-            position: absolute;
-            top: 50%;
-            right: 100%;
-            margin-top: -5px;
-            border-width: 5px;
-            border-style: solid;
-            border-color: transparent rgba(255, 255, 255, 0.1) transparent transparent;
-        }
-
-        .contact-links p:hover .tooltip {
-            visibility: visible;
-            opacity: 1;
-        }
-
-        @media screen and (max-width: 768px) {
-            .container {
-                padding: 0 1.5rem 1.5rem;
-            }
-
-            header {
-                margin-top: -3rem;  /* Increased negative margin even more */
-            }
-
-            .sections-container {
-                max-width: 100%;
-                padding: 0;
-            }
-
-            .about-content {
-                max-width: 100%;
-            }
-
-            .about-content p {
-                font-size: 0.9rem;
-                color: #e5e5e5;
-            }
-
-            .experience-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-                margin-top: 1.5rem;
+        @media (max-width: 900px) {
+            .modal {
                 width: 100%;
-                justify-items: start;  /* Align items to start instead of center */
-                margin-left: -1.5rem;  /* Pull content to align with section title */
+            }
+            
+            body {
+                padding: 30px 15px;
+            }
+            
+            h1 {
+                font-size: 17px;
+            }
+            
+            h2 {
+                font-size: 17px;
             }
 
-            .company-card {
-                width: calc(100% + 3rem);  /* Extend full width */
-                background: none;
-                height: auto;
-                padding: 1rem 1.5rem;  /* Add padding to align content */
-                flex-direction: row;
-                text-align: left;
-                align-items: center;
-                justify-content: flex-start;
-                gap: 1.2rem;
-                margin: 0;
-                border-radius: 0;
-            }
-
-            .logo-container {
-                height: 70px;
-                width: 70px;
-                min-width: 70px;
-                margin: 0;
-            }
-
-            .company-logo {
-                width: 70px;
-                height: 70px;
-                margin: 0;
-            }
-
-            .company-info {
-                display: flex;
+            .item {
                 flex-direction: column;
                 align-items: flex-start;
-                gap: 0.4rem;
+                gap: 2px;
             }
 
-            .company-name {
-                font-size: 0.9rem;
-                margin: 0;
-            }
-
-            .company-description {
-                font-size: 0.8rem;
-                margin: 0;
-                color: #bbb;
-            }
-
-            .role {
-                font-size: 0.75rem;
-                margin: 0;
-                padding: 0.2rem 0.6rem;
-                background: rgba(255, 255, 255, 0.05);
-            }
-
-            .projects-intro,
-            .contact-intro {
-                font-size: 0.9rem !important;  /* Slightly increased from 0.85rem */
-                line-height: 1.6;
-                color: #e5e5e5 !important;
-            }
-
-            .project-item {
-                padding: 1rem;  /* Reduced from 1.5rem */
-                margin-bottom: 1rem;  /* Reduced from 1.5rem */
-            }
-
-            .project-title {
-                font-size: 0.5rem !important;  /* Made even smaller */
-                margin-bottom: 0.3rem;  /* Reduced spacing */
-            }
-
-            .project-description {
-                font-size: 0.8rem !important;
-                line-height: 1.5;  /* Slightly reduced */
+            .item-category {
                 margin-left: 0;
             }
 
-            .contact-links a {
-                font-size: 0.85rem;
+            .item-date {
+                margin-left: 0;
             }
 
-            .section {
-                width: 100%;
-            }
-        }
-
-        /* Add styles for even smaller screens */
-        @media screen and (max-width: 480px) {
-            .container {
-                padding: 1.5rem 1rem;
+            .project-desc {
+                margin-left: 0;
+                margin-top: 2px;
             }
 
-            .company-card {
-                max-width: 250px;
+            .thought-item {
+                flex-direction: column;
+                align-items: flex-start;
             }
 
-            .projects-list {
-                margin-left: 0.5rem;
-            }
-
-            .project-description {
-                margin-left: 0.75rem;
-            }
-        }
-
-        h2 {
-            position: relative;
-            padding-bottom: 1rem;
-            margin-bottom: 2rem;
-        }
-
-        h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 1px;
-            background: rgba(255, 255, 255, 0.3);
-        }
-
-        .projects-list {
-            margin-left: -0.15rem;  /* Changed from -0.25rem to -0.15rem */
-            width: calc(100% + 0.3rem);  /* Changed from 0.5rem to 0.3rem to match */
-        }
-
-        .project-item {
-            margin-bottom: 1.5rem;
-            background: rgba(255, 255, 255, 0.03);
-            padding: 1.5rem;
-            border-radius: 8px;
-            transition: all 0.3s;
-            width: 100%;
-        }
-
-        .project-item:hover {
-            background: rgba(255, 255, 255, 0.05);
-            transform: translateY(-2px);
-        }
-
-        .project-item p {
-            margin-bottom: 0.5rem;
-            color: #fff;
-        }
-
-        .project-description {
-            margin-left: 0;
-            color: #bbb !important;
-            font-size: 0.95rem;
-        }
-
-        .project-title {
-            color: #3B82F6 !important;
-            font-size: 1.1rem !important;  /* Made slightly smaller */
-            font-weight: 500;
-            display: inline-block;
-            margin-bottom: 0.5rem;
-        }
-
-        .project-title:hover {
-            opacity: 0.8;
-        }
-
-        /* Update mobile styles */
-        @media screen and (max-width: 768px) {
-            .projects-list {
-                margin-left: -0.15rem;  /* Match the desktop version */
-                width: calc(100% + 0.3rem);
+            .thought-date {
+                margin-left: 0;
+                margin-top: 2px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="noise"></div>
-    <div class="container">
-        <header>
-            <div class="sections-container">
-                <div class="section" id="about">
-                    <div class="about-content">
-                        <p>Hi, I'm Ain.</p>
-                        <p>I studied Mathematics and Computer Science at UCLA.</p>
-                        <p>I like to operate in complex problem spaces, reducing ambiguity by breaking problems down into their simplest units, and then rebuilding them with elegant abstractions.</p>
-                        <p>I work at <a href="https://www.landgate.com/energy-markets/data-centers" target="_blank">Landgate</a>, focusing on algorithmic due dilligence products for AI compute infrastructure, grid connectivity, and power redundancy.</p>
-                        <p>On weekends, I enjoy building fun side projects, discovering new restaurants, and playing soccer.</p>
-                    </div>
-                </div>
-                    <div class="contact-links">
-                        <p><a href="https://x.com/ain__siddiqui" target="_blank">Twitter/X </a> · <a href="https://www.linkedin.com/in/ain1/" target="_blank">LinkedIn </a> · <a href="mailto:ain.sidd2@gmail.com">Email </a> · <a href="tel:4244409353">Phone</a>
-                        </p>
-                </div> 
-            </div>
-        </header>
+    <div class="intro">
+        <h1>Ain Siddiqui</h1>
+        <p>I work at <a href="https://www.landgate.com/energy-markets/data-centers" target="_blank">Landgate</a>, focusing on algorithmic due diligence products for AI compute infrastructure, grid connectivity, and power redundancy.</p>
+        <p>I like to operate in complex problem spaces, reducing ambiguity by breaking problems down into their simplest units, and then rebuilding them with elegant abstractions.</p>
+        <p>I studied Mathematics and Computer Science at <a href="https://ww3.math.ucla.edu/" target="_blank">UCLA</a>.</p>
+        <p>On weekends, I enjoy building fun side projects, discovering new restaurants, and playing soccer.</p>
     </div>
-    <script src="script.js"></script>
+
+    <div class="section">
+        <h2>Work</h2>
+        
+        <div class="item">
+            <div class="item-title" onclick="openModal('landgate')">Landgate</div>
+            <div class="item-category">(data center infra)</div>
+            <div class="item-date">2023 - Present</div>
+        </div>
+
+        <div class="item">
+            <div class="item-title" onclick="openModal('neumoney')">Neu Money</div>
+            <div class="item-category">(fintech)</div>
+            <div class="item-date">2022 - 2023</div>
+        </div>
+
+        <div class="item">
+            <div class="item-title" onclick="openModal('minds')">Minds</div>
+            <div class="item-category">(edtech)</div>
+            <div class="item-date">2022 - 2022</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Thoughts</h2>
+        
+        <div class="thought-item">
+            <a href="https://www.landgate.com/news/understanding-lmp-the-interconnection-queue" target="_blank" class="thought-link">Understanding LMP & The Interconnection Queue</a>
+            <div class="thought-date">Nov 6, 2025</div>
+        </div>
+
+        <div class="thought-item">
+            <a href="https://www.landgate.com/news/2025-lmp-energy-price-analysis" target="_blank" class="thought-link">2025 LMP Energy Price Analysis</a>
+            <div class="thought-date">Oct 21, 2025</div>
+        </div>
+
+        <div class="thought-item">
+            <a href="https://www.landgate.com/news/the-evolution-of-electricity-generation-in-the-u-s" target="_blank" class="thought-link">The Evolution of Electricity Generation in the U.S.</a>
+            <div class="thought-date">Aug 8, 2025</div>
+        </div>
+
+        <div class="thought-item">
+            <a href="https://www.landgate.com/news/the-impact-of-the-big-beautiful-bill-on-renewable-energy" target="_blank" class="thought-link">The Impact of the Big Beautiful Bill on Renewable Energy</a>
+            <div class="thought-date">Jul 8, 2025</div>
+        </div>
+
+        <div class="thought-item">
+            <a href="https://www.landapp.com/post/ev-charging-stations-in-the-us" target="_blank" class="thought-link">EV Charging in the U.S.</a>
+            <div class="thought-date">Mar 11, 2025</div>
+        </div>
+
+        <div class="thought-item">
+            <a href="https://www.landgate.com/news/massachusetts-solar-development-analysis" target="_blank" class="thought-link">Massachusetts Solar Development Analysis</a>
+            <div class="thought-date">Dec 19, 2024</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Projects</h2>
+        
+        <div class="item">
+            <div class="item-title" onclick="openModal('pathos')">Pathos</div>
+            <div class="project-desc">Sentiment Engine</div>
+        </div>
+
+        <div class="item">
+            <div class="item-title" onclick="openModal('workout')">Minimal Workout Tracker</div>
+            <div class="project-desc">Fitness Tracking</div>
+        </div>
+
+        <div class="item">
+            <div class="item-title" onclick="openModal('tempus')">Tempus</div>
+            <div class="project-desc">Time Management</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Contact</h2>
+        <div class="contact-links">
+            <a href="https://x.com/ainsiddiqui" target="_blank" title="@ainsiddiqui">Twitter/X</a>
+            <span>·</span>
+            <a href="https://www.linkedin.com/in/ain1/" target="_blank">LinkedIn</a>
+            <span>·</span>
+            <a href="mailto:ain.sidd2@gmail.com" title="ain.sidd2@gmail.com">Email</a>
+            <span>·</span>
+            <a href="tel:4244409353" title="(424) 440-9353">Phone</a>
+        </div>
+    </div>
+
+    <!-- Overlay -->
+    <div class="overlay" onclick="closeModal()"></div>
+
+    <!-- Modal -->
+    <div class="modal" id="modal">
+        <button class="modal-close" onclick="closeModal()">×</button>
+        <div class="modal-content" id="modal-content">
+        </div>
+    </div>
+
+    <script>
+        const modalData = {
+            landgate: {
+                title: 'Landgate',
+                content: `
+                    <p><strong>Data Center Infrastructure</strong></p>
+                    <p>As a technical product manager at <a href="https://www.landgate.com/energy-markets/data-centers" target="_blank">Landgate</a>, my work is divided into three major categories:</p>
+                    <p><strong>Research</strong><br>
+                    I conduct in-depth competitive analysis and statistical experiments to identify novel methods of data analysis and grid engineering. I also work on external blogs and webinars focusing on market dynamics and the latest industry trends.</p>
+                    <p><strong>Development</strong><br>
+                    I lead the suite of products focused on algorithmic due diligence, energy price forecasting, and interconnection screening studies. I have built ARIMA regression models and automated injection scripts in Python, leading development from 0 to 1. I have collaborated with multiple cross functional teams to scale these products nationwide.</p>
+                    <p><strong>Project management</strong><br>
+                    I lead a team of 12 product analysts to maintain and scale our data-intensive products. I also work at the intersection of the product and development teams, leading bug triage for our weekly development sprints and prioritizing clickup tickets to minimize backlog.</p>
+                `
+            },
+            neumoney: {
+                title: 'Neu Money',
+                content: `
+                    <p><a href="https://neumoney.app" target="_blank">Neu Money</a> is a fintech startup designing innovative credit solutions as a neobank. I joined as an intern and continued as a data product manager, focusing on financial research and user experience. I built an Airtable research hub that modeled credit card fees, CAC, and APR across multiple base-case scenarios. I also ran UX tests and conducted interviews to clarify user personas, identify key metrics, and tighten the signup flow.</p>
+                `
+            },
+            minds: {
+                title: 'Minds',
+                content: `
+                    <p>As a research intern at MINDS, I was involved with edtech product iteration in a fast-paced environment. My research backed major decisions by executive teams, and also helped aggregate large datasets for AI enhanced modules. I also conducted A/B tests for interface features and competitive benchmarking, expediting the launch of a quiz builder with 120k+ unique problem set permutations.</p>
+                `
+            },
+            pathos: {
+                title: 'Pathos',
+                content: `
+                    <p>An LLM powered sentiment engine that redefines how we consume information! Pathos lets you choose your desired emotion before reading the news. It retrieves articles from various APIs, scoring their emotional tone so you can discover content that aligns with how you want to feel.</p>
+                    <p><a href="https://www.pathos-news.space" target="_blank">Visit Pathos →</a></p>
+                `
+            },
+            workout: {
+                title: 'Minimal Workout Tracker',
+                content: `
+                    <p>I got tired of using the notes app to track my workouts, so I built this and never looked back. The lightweight frontend keeps things simple and I actually look forward to filling it in after working out.</p>
+                    <p>100+ users visit weekly thanks to Product Hunt, Twitter and Reddit.</p>
+                    <p><a href="https://workout-tracker.space/tracker" target="_blank">Try it out →</a></p>
+                `
+            },
+            tempus: {
+                title: 'Tempus',
+                content: `
+                    <p>Google Chrome extension that allows you to track time spent on individual tabs with automatic pause/resume when you leave the tab. Helps me stay organized and lock in on deep work, hope it helps you too!</p>
+                `
+            }
+        };
+
+        function openModal(key) {
+            const data = modalData[key];
+            const modal = document.getElementById('modal');
+            const modalContent = document.getElementById('modal-content');
+            const overlay = document.querySelector('.overlay');
+            
+            modalContent.innerHTML = `
+                <h3>${data.title}</h3>
+                ${data.content}
+            `;
+            
+            modal.classList.add('active');
+            overlay.classList.add('active');
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('modal');
+            const overlay = document.querySelector('.overlay');
+            
+            modal.classList.remove('active');
+            overlay.classList.remove('active');
+        }
+
+        // Close modal on ESC key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
 </body>
 </html>
