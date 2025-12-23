@@ -16,22 +16,42 @@
             line-height: 1.6;
             color: #e0e0e0;
             background-color: #1a1a1a;
-            padding: 40px 20px;
+            padding: 60px 20px 40px 20px;
             max-width: 650px;
             margin: 0 auto;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+        }
+
+        .header-name {
+            font-size: 18px;
+            font-weight: 500;
+            color: #ffffff;
+        }
+
+        .header-name a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
         }
 
         h1 {
             font-size: 18px;
             font-weight: 500;
-            margin-bottom: 30px;
+            margin-bottom: 50px;
             color: #ffffff;
         }
 
         h2 {
             font-size: 18px;
             font-weight: 600;
-            margin-top: 50px;
+            margin-top: 0;
             margin-bottom: 20px;
             color: #ffffff;
         }
@@ -53,11 +73,47 @@
         }
 
         .intro {
-            margin-bottom: 40px;
+            margin-bottom: 60px;
+        }
+
+        h2 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-top: 50px;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        p {
+            margin-bottom: 15px;
+            font-size: 16px;
+            color: #e0e0e0;
+        }
+
+        a {
+            color: #6b9bd1;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .intro a {
+            color: #5a8ac4 !important;
+            text-decoration: underline !important;
         }
 
         .section {
-            margin-bottom: 60px;
+            margin-bottom: 80px;
+            padding: 20px;
+            border: 1px solid #333;
+            border-radius: 12px;
+        }
+
+        .section h2 {
+            margin-top: 0;
         }
 
         .item {
@@ -98,12 +154,12 @@
             display: flex;
             gap: 15px;
             flex-wrap: wrap;
-            margin-top: 15px;
+            margin-top: 40px;
         }
 
         .contact-links a {
             font-size: 16px;
-            color: #9bb8d3;
+            color: #6b9bd1;
             font-weight: 600;
         }
 
@@ -188,7 +244,7 @@
         }
 
         .modal-close:hover {
-            color: #9bb8d3;
+            color: #6b9bd1;
         }
 
         .modal-content h3 {
@@ -211,7 +267,7 @@
         }
 
         .modal-content a {
-            color: #9bb8d3;
+            color: #6b9bd1;
             font-weight: 600;
         }
 
@@ -279,8 +335,13 @@
     </style>
 </head>
 <body>
+    <header>
+        <div class="header-name">
+            <a href="/">Ain Siddiqui</a>
+        </div>
+    </header>
+
     <div class="intro">
-        <h1>Ain Siddiqui</h1>
         <p>I work at <a href="https://www.landgate.com/energy-markets/data-centers" target="_blank">Landgate</a>, focusing on algorithmic due diligence products for AI compute infrastructure, grid connectivity, and power redundancy.</p>
         <p>I like to operate in complex problem spaces, reducing ambiguity by breaking problems down into their simplest units, and then rebuilding them with elegant abstractions.</p>
         <p>I studied Mathematics and Computer Science at <a href="https://ww3.math.ucla.edu/" target="_blank">UCLA</a>.</p>
@@ -362,17 +423,14 @@
         </div>
     </div>
 
-    <div class="section">
-        <h2>Contact</h2>
-        <div class="contact-links">
-            <a href="https://x.com/ainsiddiqui" target="_blank" title="@ainsiddiqui">Twitter/X</a>
-            <span>·</span>
-            <a href="https://www.linkedin.com/in/ain1/" target="_blank">LinkedIn</a>
-            <span>·</span>
-            <a href="mailto:ain.sidd2@gmail.com" title="ain.sidd2@gmail.com">Email</a>
-            <span>·</span>
-            <a href="tel:4244409353" title="(424) 440-9353">Phone</a>
-        </div>
+    <div class="contact-links">
+        <a href="https://x.com/ainsiddiqui" target="_blank" title="@ainsiddiqui">Twitter/X</a>
+        <span>·</span>
+        <a href="https://www.linkedin.com/in/ain1/" target="_blank">LinkedIn</a>
+        <span>·</span>
+        <a href="mailto:ain.sidd2@gmail.com" title="ain.sidd2@gmail.com">Email</a>
+        <span>·</span>
+        <a href="tel:4244409353" title="(424) 440-9353">Phone</a>
     </div>
 
     <!-- Overlay -->
