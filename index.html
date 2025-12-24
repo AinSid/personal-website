@@ -41,6 +41,11 @@
             font-weight: 500;
         }
 
+        .header-location {
+            font-size: 14px;
+            color: #999;
+        }
+
         h2 {
             font-size: 18px;
             font-weight: 600;
@@ -122,7 +127,6 @@
         .project-desc {
             font-size: 14px;
             color: #999;
-            margin-left: 20px;
             flex-shrink: 0;
         }
 
@@ -135,7 +139,7 @@
         }
 
         .contact-links a {
-            font-size: 16px;
+            font-size: 14px;
             color: #e0e0e0;
             font-weight: 400;
             text-decoration: none !important;
@@ -144,6 +148,10 @@
         .contact-links a:hover {
             color: #ffffff;
             text-decoration: none !important;
+        }
+
+        .contact-links span {
+            font-size: 14px;
         }
 
         .thought-item {
@@ -157,6 +165,7 @@
         .thought-link {
             color: #e0e0e0;
             text-decoration: underline;
+            text-decoration-thickness: 1px;
             font-size: 16px;
             font-weight: 400;
             flex: 1;
@@ -274,14 +283,20 @@
 
             .item {
                 flex-wrap: nowrap;
+                gap: 8px;
             }
 
             .item-category {
-                margin-left: 5px;
+                margin-left: 0;
+                flex-shrink: 1;
             }
 
             .project-desc {
-                margin-left: 10px;
+                margin-left: 0;
+                flex-shrink: 1;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
             }
 
             .thought-item {
@@ -305,6 +320,7 @@
         <div class="header-name">
             <a href="/">Ain Siddiqui</a>
         </div>
+        <div class="header-location">San Francisco, CA</div>
     </header>
 
     <div class="intro">
@@ -375,12 +391,12 @@
         
         <div class="item">
             <div class="item-title" onclick="openModal('pathos')">Pathos</div>
-            <div class="project-desc">Sentiment Aware News Portal</div>
+            <div class="project-desc">Sentiment Aware News</div>
         </div>
 
         <div class="item">
             <div class="item-title" onclick="openModal('workout')">Minimal Workout Tracker</div>
-            <div class="project-desc">Simplified Fitness Tracking</div>
+            <div class="project-desc">Fitness Tracking</div>
         </div>
 
         <div class="item">
