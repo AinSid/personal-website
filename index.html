@@ -12,7 +12,7 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            font-family: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, Georgia, serif;
             line-height: 1.6;
             color: #e0e0e0;
             background-color: #1a1a1a;
@@ -69,6 +69,10 @@
             margin-bottom: 60px;
         }
 
+        .intro p {
+            text-decoration: none;
+        }
+
         .section {
             margin-bottom: 80px;
             padding: 20px;
@@ -90,7 +94,7 @@
 
         .item-title {
             font-size: 16px;
-            color: #8ba9c9;
+            color: #a8c5e0;
             font-weight: 400;
             cursor: pointer;
             display: inline-block;
@@ -100,7 +104,7 @@
         }
 
         .item-title:hover {
-            color: #a8c5e0;
+            color: #c5d9ed;
         }
 
         .item-category {
@@ -304,14 +308,14 @@
     </header>
 
     <div class="intro">
-        <p>I work at <a href="https://www.landgate.com/energy-markets/data-centers" target="_blank">Landgate</a>, focusing on algorithmic due diligence products for AI compute infrastructure, grid connectivity, and power redundancy.</p>
+        <p>I studied Mathematics and Computer Science at UCLA.</p>
+        <p>I work at <span class="item-title" onclick="openModal('landgate')" style="cursor: pointer; text-decoration: underline; color: #ffffff;">Landgate</span>, focusing on algorithmic due diligence products for AI compute infrastructure, grid connectivity, and power redundancy.</p>
         <p>I like to operate in complex problem spaces, reducing ambiguity by breaking problems down into their simplest units, and then rebuilding them with elegant abstractions.</p>
-        <p>I studied Mathematics and Computer Science at <a href="https://ww3.math.ucla.edu/" target="_blank">UCLA</a>.</p>
         <p>On weekends, I enjoy building fun side projects, discovering new restaurants, and playing soccer.</p>
     </div>
 
     <div class="section">
-        <h2>Work</h2>
+        <h2>Work Experience</h2>
         
         <div class="item">
             <div class="item-title" onclick="openModal('landgate')">Landgate</div>
@@ -333,7 +337,7 @@
     </div>
 
     <div class="section">
-        <h2>Thoughts</h2>
+        <h2>Published Work</h2>
         
         <div class="thought-item">
             <a href="https://www.landgate.com/news/understanding-lmp-the-interconnection-queue" target="_blank" class="thought-link">Understanding LMP & The Interconnection Queue</a>
@@ -367,21 +371,21 @@
     </div>
 
     <div class="section">
-        <h2>Projects</h2>
+        <h2>Personal Projects</h2>
         
         <div class="item">
             <div class="item-title" onclick="openModal('pathos')">Pathos</div>
-            <div class="project-desc">Sentiment Engine</div>
+            <div class="project-desc">Sentiment Aware News Portal</div>
         </div>
 
         <div class="item">
             <div class="item-title" onclick="openModal('workout')">Minimal Workout Tracker</div>
-            <div class="project-desc">Fitness Tracking</div>
+            <div class="project-desc">Simplified Fitness Tracking</div>
         </div>
 
         <div class="item">
             <div class="item-title" onclick="openModal('tempus')">Tempus</div>
-            <div class="project-desc">Time Management</div>
+            <div class="project-desc">Time Management Tool</div>
         </div>
     </div>
 
@@ -410,7 +414,6 @@
             landgate: {
                 title: 'Landgate',
                 content: `
-                    <p><strong>Data Center Infrastructure</strong></p>
                     <p>As a technical product manager at <a href="https://www.landgate.com/energy-markets/data-centers" target="_blank">Landgate</a>, my work is divided into three major categories:</p>
                     <p><strong>Research</strong><br>
                     I conduct in-depth competitive analysis and statistical experiments to identify novel methods of data analysis and grid engineering. I also work on external blogs and webinars focusing on market dynamics and the latest industry trends.</p>
@@ -435,7 +438,7 @@
             pathos: {
                 title: 'Pathos',
                 content: `
-                    <p>An LLM powered sentiment engine that redefines how we consume information! Pathos lets you choose your desired emotion before reading the news. It retrieves articles from various APIs, scoring their emotional tone so you can discover content that aligns with how you want to feel.</p>
+                    <p>An LLM powered sentiment engine that redefines how we consume information. Pathos lets you choose your desired emotion before reading the news. It retrieves articles from various APIs, scoring their emotional tone so you can discover content that aligns with how you want to feel.</p>
                     <p><a href="https://www.pathos-news.space" target="_blank">Visit Pathos →</a></p>
                 `
             },
@@ -450,7 +453,7 @@
             tempus: {
                 title: 'Tempus',
                 content: `
-                    <p>Google Chrome extension that allows you to track time spent on individual tabs with automatic pause/resume when you leave the tab. Helps me stay organized and lock in on deep work, hope it helps you too!</p>
+                    <p>Google Chrome extension that allows you to track time spent on individual tabs with automatic pause/resume when you leave the tab.</p>
                 `
             }
         };
