@@ -1,0 +1,27 @@
+/* Remove or update the existing projects-list margin */
+.projects-list {
+    margin-left: 0;  /* Remove the left margin */
+    width: 100%;     /* Make it full width */
+}
+
+/* Update project-item styles */
+.project-item {
+    margin-bottom: 1.5rem;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 1.5rem;
+    border-radius: 8px;
+    transition: all 0.3s;
+    width: 100%;     /* Make each item full width */
+}
+
+/* Update mobile styles if needed */
+@media screen and (max-width: 768px) {
+    .projects-list {
+        margin-left: 0;
+    }
+    
+    .project-item {
+        width: 100%;
+        padding: 1.2rem;
+    }
+} 

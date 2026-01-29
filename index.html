@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ain Siddiqui</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, Georgia, serif;
+            line-height: 1.6;
+            color: #e0e0e0;
+            background-color: #1a1a1a;
+            padding: 80px 20px 60px 20px;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+        }
+
+        .header-name {
+            font-size: 18px;
+            font-weight: 500;
+            color: #ffffff;
+        }
+
+        .header-name a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .header-location {
+            font-size: 14px;
+            color: #999;
+        }
+
+        h2 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-top: 0;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        p {
+            margin-bottom: 15px;
+            font-size: 16px;
+            color: #e0e0e0;
+        }
+
+        a {
+            color: #e0e0e0;
+            text-decoration: underline;
+            font-weight: 400;
+        }
+
+        a:hover {
+            color: #ffffff;
+        }
+
+        .intro {
+            margin-bottom: 60px;
+        }
+
+        .intro p {
+            text-decoration: none;
+        }
+
+        .section {
+            margin-bottom: 80px;
+            padding: 20px;
+            border: 1px solid #333;
+            border-radius: 12px;
+        }
+
+        .section h2 {
+            margin-top: 0;
+        }
+
+        .thought-item:first-child {
+            margin-top: 20px;
+        }
+
+        .item {
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 5px;
+        }
+
+        .item-title {
+            font-size: 16px;
+            color: #a8c5e0;
+            font-weight: 400;
+            cursor: pointer;
+            display: inline-block;
+            margin-bottom: 5px;
+            flex-shrink: 0;
+            text-decoration: none;
+        }
+
+        .item-title:hover {
+            color: #c5d9ed;
+        }
+
+        .item-category {
+            font-size: 14px;
+            color: #999;
+            flex-grow: 1;
+        }
+
+        .item-date {
+            font-size: 14px;
+            color: #999;
+            flex-shrink: 0;
+        }
+
+        .project-desc {
+            font-size: 14px;
+            color: #999;
+            flex-shrink: 0;
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+            margin-left: 10px;
+        }
+
+        .contact-links a {
+            font-size: 14px;
+            color: #e0e0e0;
+            font-weight: 400;
+            text-decoration: none !important;
+        }
+
+        .contact-links a:hover {
+            color: #ffffff;
+            text-decoration: none !important;
+        }
+
+        .contact-links span {
+            font-size: 14px;
+        }
+
+        .thought-item {
+            margin-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 10px;
+        }
+
+        .thought-link {
+            color: #e0e0e0;
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+            font-size: 16px;
+            font-weight: 400;
+            flex: 1;
+        }
+
+        .thought-link:hover {
+            color: #ffffff;
+        }
+
+        .thought-date {
+            font-size: 14px;
+            color: #999;
+            margin-left: 20px;
+            flex-shrink: 0;
+        }
+
+        /* Modal/Popup Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background-color: #242424;
+            box-shadow: -2px 0 10px rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            overflow-y: auto;
+            padding: 40px;
+            animation: slideIn 0.3s ease-out;
+        }
+
+        .modal.active {
+            display: block;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+            }
+
+            to {
+                transform: translateX(0);
+            }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 28px;
+            color: #e0e0e0;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 0;
+            line-height: 1;
+        }
+
+        .modal-close:hover {
+            color: #ffffff;
+        }
+
+        .modal-content h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
+
+        .modal-content p {
+            margin-bottom: 15px;
+            color: #e0e0e0;
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        .modal-content strong {
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        .modal-content a {
+            color: #e0e0e0;
+            font-weight: 400;
+            text-decoration: underline;
+        }
+
+        .modal-content a:hover {
+            color: #ffffff;
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+
+        .overlay.active {
+            display: block;
+        }
+
+        @media (max-width: 900px) {
+            .modal {
+                width: 100%;
+            }
+
+            body {
+                padding: 40px 35px;
+            }
+
+            .item {
+                flex-wrap: nowrap;
+                gap: 8px;
+            }
+
+            .item-category {
+                margin-left: 0;
+                flex-shrink: 1;
+            }
+
+            .project-desc {
+                margin-left: 0;
+                flex-shrink: 1;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            .thought-item {
+                flex-wrap: nowrap;
+                gap: 10px;
+            }
+
+            .thought-link {
+                flex: 1;
+                min-width: 0;
+            }
+
+            .thought-date {
+                flex-shrink: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-name">
+            <a href="/">Ain Siddiqui</a>
+        </div>
+        <div class="header-location">San Francisco, CA</div>
+    </header>
+
+    <div class="intro">
+        <p>I studied Mathematics and Computer Science at UCLA.</p>
+        <p>I work at <span class="item-title" onclick="openModal('landgate')"
+                style="cursor: pointer; text-decoration: underline; color: #ffffff;">Landgate</span>, focusing on
+            algorithmic due diligence products for AI compute infrastructure, grid connectivity, and power redundancy.
+        </p>
+        <p>I like to operate in complex problem spaces, reducing ambiguity by breaking problems down into their simplest
+            units, and then rebuilding them with elegant abstractions.</p>
+        <p>On weekends, I enjoy building fun side projects, discovering new restaurants, and playing soccer.</p>
+    </div>
+
+    <div class="section">
+        <h2>Work Experience</h2>
+
+        <div class="item">
+            <div class="item-title" onclick="openModal('landgate')">Landgate</div>
+            <div class="item-category" style="padding-left: 3px;"> (data center infra)</div>
+            <div class="item-date">2023 - Present</div>
+        </div>
+
+        <div class="item">
+            <div class="item-title" onclick="openModal('neumoney')">Neu Money</div>
+            <div class="item-category">(fintech)</div>
+            <div class="item-date">2022 - 2023</div>
+        </div>
+
+        <div class="item">
+            <div class="item-title" onclick="openModal('minds')">Minds</div>
+            <div class="item-category">(edtech)</div>
+            <div class="item-date">2022 - 2022</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Published Work</h2>
+
+        <div class="thought-item">
+            <a href="https://www.landgate.com/news/understanding-lmp-the-interconnection-queue" target="_blank"
+                class="thought-link">Understanding LMP & The Interconnection Queue</a>
+            <div class="thought-date">Nov 6, 2025</div>
+        </div>
+
+        <div class="thought-item">
+            <a href="https://www.landgate.com/news/2025-lmp-energy-price-analysis" target="_blank"
+                class="thought-link">2025 LMP Energy Price Analysis</a>
+            <div class="thought-date">Oct 21, 2025</div>
+        </div>
+
+        <div class="thought-item">
+            <a href="https://www.landgate.com/news/the-evolution-of-electricity-generation-in-the-u-s" target="_blank"
+                class="thought-link">The Evolution of Electricity Generation in the U.S.</a>
+            <div class="thought-date">Aug 8, 2025</div>
+        </div>
+
+        <div class="thought-item">
+            <a href="https://www.landgate.com/news/the-impact-of-the-big-beautiful-bill-on-renewable-energy"
+                target="_blank" class="thought-link">The Impact of the Big Beautiful Bill on Renewable Energy</a>
+            <div class="thought-date">Jul 8, 2025</div>
+        </div>
+
+        <div class="thought-item">
+            <a href="https://www.landapp.com/post/ev-charging-stations-in-the-us" target="_blank"
+                class="thought-link">EV Charging in the U.S.</a>
+            <div class="thought-date">Mar 11, 2025</div>
+        </div>
+
+        <div class="thought-item">
+            <a href="https://www.landgate.com/news/massachusetts-solar-development-analysis" target="_blank"
+                class="thought-link">Massachusetts Solar Development Analysis</a>
+            <div class="thought-date">Dec 19, 2024</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Personal Projects</h2>
+
+        <div class="item">
+            <div class="item-title" onclick="openModal('aistack')">AI Power Stack</div>
+            <div class="project-desc">Interactive 3D Model</div>
+        </div>
+
+        <div class="item">
+            <div class="item-title" onclick="openModal('infraecon')">Infra Economics</div>
+            <div class="project-desc">GPU Cluster Costs</div>
+        </div>
+
+        <div class="item">
+            <div class="item-title" onclick="openModal('workout')">Minimal Tracker</div>
+            <div class="project-desc">Fitness Tracking</div>
+        </div>
+
+        <div class="item">
+            <div class="item-title" onclick="openModal('tempus')">Tempus</div>
+            <div class="project-desc">Time Management Tool</div>
+        </div>
+
+        <div class="item">
+            <div class="item-title" onclick="openModal('pathos')">Pathos</div>
+            <div class="project-desc">Sentiment Aware News</div>
+        </div>
+    </div>
+
+    <div class="contact-links">
+        <a href="https://x.com/ain__siddiqui" target="_blank" title="@ain__siddiqui">Twitter/X</a>
+        <span>·</span>
+        <a href="https://www.linkedin.com/in/ain1/" target="_blank">LinkedIn</a>
+        <span>·</span>
+        <a href="mailto:ain.sidd2@gmail.com" title="ain.sidd2@gmail.com">Email</a>
+        <span>·</span>
+        <a href="tel:4244409353" title="(424) 440-9353">Phone</a>
+    </div>
+
+    <!-- Overlay -->
+    <div class="overlay" onclick="closeModal()"></div>
+
+    <!-- Modal -->
+    <div class="modal" id="modal">
+        <button class="modal-close" onclick="closeModal()">×</button>
+        <div class="modal-content" id="modal-content">
+        </div>
+    </div>
+
+    <script>
+        const modalData = {
+            landgate: {
+                title: 'Landgate',
+                content: `
+                    <p>As a technical product manager at <a href="https://www.landgate.com/energy-markets/data-centers" target="_blank">Landgate</a>, my work is divided into three major categories:</p>
+                    <p><strong>Research</strong><br>
+                    I conduct in-depth competitive analysis and statistical experiments to identify novel methods of data analysis and grid engineering. I also work on external blogs and webinars focusing on market dynamics and the latest industry trends.</p>
+                    <p><strong>Development</strong><br>
+                    I lead the suite of products focused on algorithmic due diligence, energy price forecasting, and interconnection screening studies. I have built ARIMA regression models and automated injection scripts in Python, leading development from 0 to 1. I have collaborated with multiple cross functional teams to scale these products nationwide.</p>
+                    <p><strong>Project management</strong><br>
+                    I lead a team of 12 product analysts to maintain and scale our data-intensive products. I also work at the intersection of the product and development teams, leading bug triage for our weekly development sprints and prioritizing clickup tickets to minimize backlog.</p>
+                `
+            },
+            neumoney: {
+                title: 'Neu Money',
+                content: `
+                    <p><a href="https://neumoney.app" target="_blank">Neu Money</a> is a fintech startup designing innovative credit solutions as a neobank. I joined as an intern and continued as a data product manager, focusing on financial research and user experience. I built an Airtable research hub that modeled credit card fees, CAC, and APR across multiple base-case scenarios. I also ran UX tests and conducted interviews to clarify user personas, identify key metrics, and tighten the signup flow.</p>
+                `
+            },
+            minds: {
+                title: 'Minds',
+                content: `
+                    <p>As a research intern at MINDS, I was involved with edtech product iteration in a fast-paced environment. My research backed major decisions by executive teams, and also helped aggregate large datasets for AI enhanced modules. I also conducted A/B tests for interface features and competitive benchmarking, expediting the launch of a quiz builder with 120k+ unique problem set permutations.</p>
+                `
+            },
+            aistack: {
+                title: '<a href="https://www.ai-power.space/" target="_blank">AI Power Stack</a>',
+                content: `
+                    <p>AI Power Stack visualizes the hidden power infrastructure behind AI. This includes the chips, the racks, the data centers, and the power plants. It's an interactive 3D model that breaks down why power is the primary bottleneck for frontier AI systems. I built it to understand (and analyze) the $6.7 trillion machine required to turn electricity into intelligence. Made with React, Three.js, and way too many hours reading grid interconnection reports.</p>
+                    <p><a href="https://www.ai-power.space/" target="_blank">Check it out here →</a></p>
+                `
+            },
+            infraecon: {
+                title: '<a href="https://www.infra-economics.com/" target="_blank">Infra Economics</a>',
+                content: `
+                    <p>Building a 10,000-GPU AI training cluster costs over $700 million. But that number doesn't tell the full story—behind it are dozens of hidden costs, from GPU hardware and networking to cooling systems, power infrastructure, and software licensing. Most of these expenses are never broken down in public, making it hard to understand where the money actually goes.</p>
+                    <p>Infra Economics is an interactive data visualization that breaks down this complexity. Using real-world infrastructure research, it maps out the $732 million in capital required. This spans across H100 GPU nodes, OEM system integration, InfiniBand networking switches, direct-to-chip liquid cooling, electrical distribution, and high-capacity storage. The project also explores the $55 million in annual operating costs, including power consumption, software licensing, and hardware maintenance. Built with vanilla JavaScript and custom SVG graphics, it transforms complex financial data into an intuitive, explorable experience.</p>
+                    <p><a href="https://www.infra-economics.com/" target="_blank">Explore the full breakdown here →</a></p>
+                `
+            },
+            pathos: {
+                title: 'Pathos',
+                content: `
+                    <p>An LLM powered sentiment engine that redefines how we consume information. Pathos lets you choose your desired emotion before reading the news. It retrieves articles from various APIs, scoring their emotional tone so you can discover content that aligns with how you want to feel.</p>
+                    <p><a href="https://www.pathos-news.space" target="_blank">Visit Pathos →</a></p>
+                `
+            },
+            workout: {
+                title: 'Minimal Workout Tracker',
+                content: `
+                    <p>I got tired of using the notes app to track my workouts, so I built this and never looked back. The lightweight frontend keeps things simple and I actually look forward to filling it in after working out.</p>
+                    <p>100+ users visit weekly thanks to Product Hunt, Twitter and Reddit.</p>
+                    <p><a href="https://workout-tracker.space/tracker" target="_blank">Try it out →</a></p>
+                `
+            },
+            tempus: {
+                title: 'Tempus',
+                content: `
+                    <p>Google Chrome extension that allows you to track time spent on individual tabs with automatic pause/resume when you leave the tab.</p>
+                `
+            }
+        };
+
+        function openModal(key) {
+            const data = modalData[key];
+            const modal = document.getElementById('modal');
+            const modalContent = document.getElementById('modal-content');
+            const overlay = document.querySelector('.overlay');
+
+            modalContent.innerHTML = `
+                <h3>${data.title}</h3>
+                ${data.content}
+            `;
+
+            modal.classList.add('active');
+            overlay.classList.add('active');
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('modal');
+            const overlay = document.querySelector('.overlay');
+
+            modal.classList.remove('active');
+            overlay.classList.remove('active');
+        }
+
+        // Close modal on ESC key
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+
+</html>
