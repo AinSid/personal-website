@@ -7,6 +7,14 @@
     <link rel="icon" type="image/png" href="favicon.png">
     <title>Ain Siddiqui</title>
     <style>
+        @font-face {
+            font-family: "Geist Local";
+            src: url("./geist.woff2") format("woff2");
+            font-style: normal;
+            font-weight: 100 900;
+            font-display: swap;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -14,13 +22,17 @@
         }
 
         body {
-            font-family: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, Georgia, serif;
+            font-family: "Geist Local", Arial, Helvetica, sans-serif;
             line-height: 1.6;
             color: #e0e0e0;
             background-color: #1a1a1a;
             padding: 80px 20px 60px 20px;
-            max-width: 650px;
+            max-width: 760px;
             margin: 0 auto;
+        }
+
+        button {
+            font-family: inherit;
         }
 
         header {
@@ -32,7 +44,7 @@
         }
 
         .header-name {
-            font-size: 18px;
+            font-size: 19px;
             font-weight: 500;
             color: #ffffff;
         }
@@ -44,7 +56,7 @@
         }
 
         .header-location {
-            font-size: 14px;
+            font-size: 16px;
             color: #999;
         }
 
@@ -58,7 +70,9 @@
 
         p {
             margin-bottom: 15px;
-            font-size: 16px;
+            font-family: "Geist Local", Arial, Helvetica, sans-serif;
+            font-size: 17px;
+            line-height: 27.2px;
             color: #e0e0e0;
         }
 
@@ -80,8 +94,13 @@
             text-decoration: none;
         }
 
+        .intro p .item-title {
+            font-family: inherit;
+            font-size: inherit;
+        }
+
         .section {
-            margin-bottom: 80px;
+            margin-bottom: 60px;
             padding: 20px;
             border: 1px solid #333;
             border-radius: 12px;
@@ -245,7 +264,7 @@
         .modal-content p {
             margin-bottom: 15px;
             color: #e0e0e0;
-            line-height: 1.6;
+            line-height: 25.6px;
             font-size: 16px;
         }
 
@@ -328,15 +347,18 @@
         <div class="header-name">
             <a href="/">Ain Siddiqui</a>
         </div>
-        <div class="header-location">San Francisco, CA</div>
+        <div class="header-location">New York, NY</div>
     </header>
 
     <div class="intro">
-        <p>I studied Mathematics and Computer Science at UCLA.</p>
-        <p>I work at <span class="item-title" onclick="openModal('landgate')"
-                style="cursor: pointer; text-decoration: underline; color: #ffffff;">Landgate</span>, focusing on
-            algorithmic due diligence products for AI compute infrastructure, grid connectivity, and power redundancy.
-        </p>
+        <p>Hi, I’m Ain. I’m a Technical Product Manager for Data Platforms at <a href="https://www.woodmac.com/"
+                target="_blank" rel="noopener noreferrer">Wood Mackenzie</a>. I am also pursuing a Master’s in Data
+            Science at Columbia University.</p>
+        <p>I spent the last three years building <span class="item-title" onclick="openModal('landgate')"
+                style="cursor: pointer; text-decoration: underline; color: #ffffff;">LandGate</span> based in San
+            Francisco. We recently got acquired by Wood Mackenzie in June 2026.</p>
+        <p>I built algorithmic due diligence products for AI compute infrastructure, grid connectivity, and power
+            redundancy.</p>
         <p>I like to operate in complex problem spaces, reducing ambiguity by breaking problems down into their simplest
             units, and then rebuilding them with elegant abstractions.</p>
         <p>On weekends, I enjoy building fun side projects, discovering new restaurants, and playing soccer.</p>
@@ -346,9 +368,15 @@
         <h2>Work Experience</h2>
 
         <div class="item">
-            <div class="item-title" onclick="openModal('landgate')">Landgate</div>
-            <div class="item-category" style="padding-left: 3px;"> (data center infra)</div>
-            <div class="item-date">2023 - Present</div>
+            <div class="item-title" onclick="openModal('woodmackenzie')">Wood Mackenzie</div>
+            <div class="item-category" style="padding-left: 3px;">(data platforms)</div>
+            <div class="item-date">2026 - Present</div>
+        </div>
+
+        <div class="item">
+            <div class="item-title" onclick="openModal('landgate')">LandGate</div>
+            <div class="item-category" style="padding-left: 3px;">| acquired by Wood Mackenzie</div>
+            <div class="item-date">2023 - 2026</div>
         </div>
 
         <div class="item">
@@ -357,15 +385,49 @@
             <div class="item-date">2022 - 2023</div>
         </div>
 
+    </div>
+
+    <div class="section">
+        <h2>Personal Projects</h2>
+
         <div class="item">
-            <div class="item-title" onclick="openModal('minds')">Minds</div>
-            <div class="item-category">(edtech)</div>
-            <div class="item-date">2022 - 2022</div>
+            <a class="item-title" href="https://www.ab-test.site" target="_blank"
+                rel="noopener noreferrer">A/B Testing Experiment</a>
+            <div class="project-desc">Statistical Analysis</div>
+        </div>
+
+        <div class="item">
+            <div class="item-title" style="cursor: default;">ML Recommendation System</div>
+            <div class="project-desc">Machine Learning</div>
+        </div>
+
+        <div class="item">
+            <a class="item-title" href="https://www.ai-power.space/" target="_blank"
+                rel="noopener noreferrer">AI Power Stack</a>
+            <div class="project-desc">Interactive 3D Model</div>
+        </div>
+
+        <div class="item">
+            <a class="item-title" href="https://www.infra-economics.com/" target="_blank"
+                rel="noopener noreferrer">Infra Economics</a>
+            <div class="project-desc">GPU Cluster Costs</div>
+        </div>
+
+        <div class="item">
+            <a class="item-title" href="https://www.pathos-news.space" target="_blank"
+                rel="noopener noreferrer">Pathos</a>
+            <div class="project-desc">Sentiment Aware News</div>
         </div>
     </div>
 
     <div class="section">
         <h2>Published Work</h2>
+
+        <div class="thought-item">
+            <a href="papers/cost-sensitivity-stress-testing.pdf" target="_blank"
+                class="thought-link">Cost Sensitivity &amp; Stress Testing</a>
+            <div class="thought-date">Jun 16, 2026</div>
+        </div>
 
         <div class="thought-item">
             <a href="https://www.landgate.com/news/understanding-lmp-the-interconnection-queue" target="_blank"
@@ -404,41 +466,12 @@
         </div>
     </div>
 
-    <div class="section">
-        <h2>Personal Projects</h2>
-
-        <div class="item">
-            <div class="item-title" onclick="openModal('aistack')">AI Power Stack</div>
-            <div class="project-desc">Interactive 3D Model</div>
-        </div>
-
-        <div class="item">
-            <div class="item-title" onclick="openModal('infraecon')">Infra Economics</div>
-            <div class="project-desc">GPU Cluster Costs</div>
-        </div>
-
-        <div class="item">
-            <div class="item-title" onclick="openModal('workout')">Minimal Tracker</div>
-            <div class="project-desc">Fitness Tracking</div>
-        </div>
-
-        <div class="item">
-            <div class="item-title" onclick="openModal('tempus')">Tempus</div>
-            <div class="project-desc">Time Management Tool</div>
-        </div>
-
-        <div class="item">
-            <div class="item-title" onclick="openModal('pathos')">Pathos</div>
-            <div class="project-desc">Sentiment Aware News</div>
-        </div>
-    </div>
-
     <div class="contact-links">
         <a href="https://x.com/ain__siddiqui" target="_blank" title="@ain__siddiqui">Twitter/X</a>
         <span>·</span>
         <a href="https://www.linkedin.com/in/ain1/" target="_blank">LinkedIn</a>
         <span>·</span>
-        <a href="mailto:ain.sidd2@gmail.com" title="ain.sidd2@gmail.com">Email</a>
+        <a href="mailto:as8316@columbia.edu" title="as8316@columbia.edu">Email</a>
         <span>·</span>
         <a href="tel:4244409353" title="(424) 440-9353">Phone</a>
     </div>
@@ -455,16 +488,30 @@
 
     <script>
         const modalData = {
-            landgate: {
-                title: 'Landgate',
+            woodmackenzie: {
+                title: 'Wood Mackenzie',
                 content: `
-                    <p>As a technical product manager at <a href="https://www.landgate.com/energy-markets/data-centers" target="_blank">Landgate</a>, my work is divided into three major categories:</p>
+                    <p>I joined <a href="https://www.woodmac.com/" target="_blank" rel="noopener noreferrer">Wood Mackenzie</a> following its acquisition of LandGate in June 2026.</p>
+                    <p>I am currently working on the integration of LandGate data into Wood Mackenzie’s suite of products. I am also leading the adoption of forecasting models by leading U.S. hedge funds and banks.</p>
+                    <p>At LandGate, I was involved with the following:</p>
                     <p><strong>Research</strong><br>
-                    I conduct in-depth competitive analysis and statistical experiments to identify novel methods of data analysis and grid engineering. I also work on external blogs and webinars focusing on market dynamics and the latest industry trends.</p>
+                    I conducted in-depth competitive analysis and statistical experiments to identify novel methods of data analysis and grid engineering. I also worked on external blogs and webinars focusing on market dynamics and the latest industry trends.</p>
                     <p><strong>Development</strong><br>
-                    I lead the suite of products focused on algorithmic due diligence, energy price forecasting, and interconnection screening studies. I have built ARIMA regression models and automated injection scripts in Python, leading development from 0 to 1. I have collaborated with multiple cross functional teams to scale these products nationwide.</p>
+                    I led the suite of products focused on algorithmic due diligence, energy price forecasting, and interconnection screening studies. I built ARIMA regression models and automated injection scripts in Python, leading development from 0 to 1. I collaborated with multiple cross-functional teams to scale these products nationwide.</p>
                     <p><strong>Project management</strong><br>
-                    I lead a team of 12 product analysts to maintain and scale our data-intensive products. I also work at the intersection of the product and development teams, leading bug triage for our weekly development sprints and prioritizing clickup tickets to minimize backlog.</p>
+                    I led a team of 12 product analysts to maintain and scale our data-intensive products. I also worked at the intersection of the product and development teams, leading bug triage for our weekly development sprints and prioritizing ClickUp tickets to minimize backlog.</p>
+                `
+            },
+            landgate: {
+                title: 'LandGate',
+                content: `
+                    <p>As a technical product manager at <a href="https://www.landgate.com/energy-markets/data-centers" target="_blank">LandGate</a>, my work was divided into three major categories:</p>
+                    <p><strong>Research</strong><br>
+                    I conducted in-depth competitive analysis and statistical experiments to identify novel methods of data analysis and grid engineering. I also worked on external blogs and webinars focusing on market dynamics and the latest industry trends.</p>
+                    <p><strong>Development</strong><br>
+                    I led the suite of products focused on algorithmic due diligence, energy price forecasting, and interconnection screening studies. I built ARIMA regression models and automated injection scripts in Python, leading development from 0 to 1. I collaborated with multiple cross-functional teams to scale these products nationwide.</p>
+                    <p><strong>Project management</strong><br>
+                    I led a team of 12 product analysts to maintain and scale our data-intensive products. I also worked at the intersection of the product and development teams, leading bug triage for our weekly development sprints and prioritizing ClickUp tickets to minimize backlog.</p>
                 `
             },
             neumoney: {
@@ -473,48 +520,6 @@
                     <p><a href="https://neumoney.app" target="_blank">Neu Money</a> is a fintech startup designing innovative credit solutions as a neobank. I joined as an intern and continued as a data product manager, focusing on financial research and user experience. I built an Airtable research hub that modeled credit card fees, CAC, and APR across multiple base-case scenarios. I also ran UX tests and conducted interviews to clarify user personas, identify key metrics, and tighten the signup flow.</p>
                 `
             },
-            minds: {
-                title: 'Minds',
-                content: `
-                    <p>As a research intern at MINDS, I was involved with edtech product iteration in a fast-paced environment. My research backed major decisions by executive teams, and also helped aggregate large datasets for AI enhanced modules. I also conducted A/B tests for interface features and competitive benchmarking, expediting the launch of a quiz builder with 120k+ unique problem set permutations.</p>
-                `
-            },
-            aistack: {
-                title: '<a href="https://www.ai-power.space/" target="_blank">AI Power Stack</a>',
-                content: `
-                    <p>AI Power Stack visualizes the hidden power infrastructure behind AI. This includes the chips, the racks, the data centers, and the power plants. It's an interactive 3D model that breaks down why power is the primary bottleneck for frontier AI systems. I built it to understand (and analyze) the $6.7 trillion machine required to turn electricity into intelligence. Made with React, Three.js, and way too many hours reading grid interconnection reports.</p>
-                    <p><a href="https://www.ai-power.space/" target="_blank">Check it out here →</a></p>
-                `
-            },
-            infraecon: {
-                title: '<a href="https://www.infra-economics.com/" target="_blank">Infra Economics</a>',
-                content: `
-                    <p>Building a 10,000-GPU AI training cluster costs over $700 million. But that number doesn't tell the full story—behind it are dozens of hidden costs, from GPU hardware and networking to cooling systems, power infrastructure, and software licensing. Most of these expenses are never broken down in public, making it hard to understand where the money actually goes.</p>
-                    <p>Infra Economics is an interactive data visualization that breaks down this complexity. Using real-world infrastructure research, it maps out the $732 million in capital required. This spans across H100 GPU nodes, OEM system integration, InfiniBand networking switches, direct-to-chip liquid cooling, electrical distribution, and high-capacity storage. The project also explores the $55 million in annual operating costs, including power consumption, software licensing, and hardware maintenance. Built with vanilla JavaScript and custom SVG graphics, it transforms complex financial data into an intuitive, explorable experience.</p>
-                    <p><a href="https://www.infra-economics.com/" target="_blank">Explore the full breakdown here →</a></p>
-                `
-            },
-            pathos: {
-                title: 'Pathos',
-                content: `
-                    <p>An LLM powered sentiment engine that redefines how we consume information. Pathos lets you choose your desired emotion before reading the news. It retrieves articles from various APIs, scoring their emotional tone so you can discover content that aligns with how you want to feel.</p>
-                    <p><a href="https://www.pathos-news.space" target="_blank">Visit Pathos →</a></p>
-                `
-            },
-            workout: {
-                title: 'Minimal Workout Tracker',
-                content: `
-                    <p>I got tired of using the notes app to track my workouts, so I built this and never looked back. The lightweight frontend keeps things simple and I actually look forward to filling it in after working out.</p>
-                    <p>100+ users have visited thanks to Product Hunt, Twitter and Reddit.</p>
-                    <p><a href="https://workout-tracker.space/tracker" target="_blank">Try it out →</a></p>
-                `
-            },
-            tempus: {
-                title: 'Tempus',
-                content: `
-                    <p>Google Chrome extension that allows you to track time spent on individual tabs with automatic pause/resume when you leave the tab.</p>
-                `
-            }
         };
 
         function openModal(key) {
